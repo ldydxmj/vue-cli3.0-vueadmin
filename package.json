@@ -11,6 +11,8 @@
     "analyze": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
+    "mylint": "eslint --ext .js src",
+    "precommit": "npm run mylint",
     "dll": "webpack -p --progress --config ./webpack.dll.conf.js"
   },
   "dependencies": {
@@ -38,6 +40,7 @@
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "husky": "^3.0.2",
     "qiniu-webpack-plugin": "^0.4.2",
     "sass": "^1.18.0",
     "sass-loader": "^7.1.0",
