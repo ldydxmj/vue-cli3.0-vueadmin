@@ -1,9 +1,8 @@
 
 export default {
     namespaced: true,
-    name: 'login',
     state: {
-        token: '222'// token
+        token: ''// token
     },
     getters: {},
     actions: {

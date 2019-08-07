@@ -11,6 +11,8 @@ Vue.use(Router)
 
 /* 初始路由 */
 export default new Router({
+    mode: 'history',
+    base: '',
     routes: [
         {
             path: '/login',

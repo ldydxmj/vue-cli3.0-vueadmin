@@ -22,6 +22,12 @@
                 </el-button>
             </el-form-item>
             <div class="tips">用户为admin的时候，能够看到所有的权限列表，其余账号只能看到部分</div>
+            <div @click='myClick' >
+                test click
+            </div>
+            <div @click='myClick2' >
+                history
+            </div>
         </el-form>
     </div>
 </template>
@@ -29,6 +35,9 @@
 <script>
 // import { login } from '@/api/permission'
 import { mapState } from 'vuex'
+import { historyPush } from '@/utils/utils'
+import { equalHistoryPath } from '@/utils/EqualHistoryPath'
+
 export default {
     data() {
         const validateUsername = (rule, value, callback) => {
@@ -67,6 +76,21 @@ export default {
         }
     },
     methods: {
+
+        myClick() {
+            // console.log(this.$route, equalHistoryPath(this.$route.path, '/login'))
+
+            // historyPush(this.$router, {
+            //     path: '/my/path',
+            //     query: { data: 'dd' }
+            // })
+            console.log(this, this.$router, this.$route)
+        },
+        myClick2() {
+            // window.history.pushState({
+            //     myobj: 's'
+            // }, '11', '/dd')
+        },
         showPwd() {
             if (this.pwdType === 'password') {
                 this.pwdType = ''
