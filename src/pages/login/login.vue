@@ -27,7 +27,8 @@
 </template>
 
 <script>
-import { login } from '@/api/permission'
+// import { login } from '@/api/permission'
+import { mapState } from 'vuex'
 export default {
     data() {
         const validateUsername = (rule, value, callback) => {
@@ -75,14 +76,33 @@ export default {
         },
         async login() {
             try {
-                let data = await login(this.loginForm)
-                let token = data.token
-                this.$store.commit('LOGIN_IN', token)
+                // let data = await login(this.loginForm)
+                // let token = data.token
+                // this.$store.commit('LOGIN_IN', token)
+
+                // this.$store.dispatch('login/FETCH_PERMISSION', {
+                //     myname: 'ddd'
+                // })
+                this.$store.dispatch({
+                    type: 'login/FETCH_PERMISSION',
+                    payload: {
+                        data: 10
+                    }
+                }).then(() => {
+                    console.log(this.token, 'dd')
+                })
+
                 this.$router.replace('/')
             } catch (e) {
                 console.log(e)
             }
         }
+    },
+    computed: mapState('login', {
+        token: state => state.token
+    }),
+    mounted: () => {
+        console.log('mo')
     }
 }
 </script>
