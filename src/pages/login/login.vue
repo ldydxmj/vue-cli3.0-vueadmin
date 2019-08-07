@@ -60,7 +60,7 @@ export default {
                 password: '123456'
             },
             loginRules: {
-                [[]]
+                [[]]666
                 username: [
                     {
                         required: true,
